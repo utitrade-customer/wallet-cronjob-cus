@@ -1,0 +1,55 @@
+version: "3"
+services:
+  addresses:
+    build:
+      context: addresses
+    volumes:
+      - ./addresses:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: addresses
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+      - CX_MYSQL_ENV_HOST=${CX_MYSQL_ENV_HOST}
+      - CX_MYSQL_ENV_PORT=${CX_MYSQL_ENV_PORT}
+      - CX_MYSQL_ENV_USER=${CX_MYSQL_ENV_USER}
+      - CX_MYSQL_ENV_PASSWORD=${CX_MYSQL_ENV_PASSWORD}
+      - ETHERSCAN_API_KEY=${ETHERSCAN_API_KEY}
+      - BSCSCAN_API_KEY=${BSCSCAN_API_KEY}
+      - FIREBASE_API_KEY=${FIREBASE_API_KEY}
+      - FIREBASE_AUTH_DOMAIN=${FIREBASE_AUTH_DOMAIN}
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_STORAGE_BUCKET=${FIREBASE_STORAGE_BUCKET}
+      - FIREBASE_MESSAGING_SENDER_ID=${FIREBASE_MESSAGING_SENDER_ID}
+      - FIREBASE_APP_ID=${FIREBASE_APP_ID}
+      - REDIS_HOSTNAME=${REDIS_HOSTNAME}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+
+  transactions:
+    build:
+      context: transactions
+    volumes:
+      - ./transactions:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: transactions
+    restart: always
+    environment:
+      - MYSQL_ENV_HOST=${MYSQL_ENV_HOST}
+      - MYSQL_ENV_PORT=${MYSQL_ENV_PORT}
+      - MYSQL_ENV_USER=${MYSQL_ENV_USER}
+      - MYSQL_ENV_PASSWORD=${MYSQL_ENV_PASSWORD}
+      - ETHERSCAN_API_KEY=${ETHERSCAN_API_KEY}
+      - BSCSCAN_API_KEY=${BSCSCAN_API_KEY}
+      - FIREBASE_API_KEY=${FIREBASE_API_KEY}
+      - FIREBASE_AUTH_DOMAIN=${FIREBASE_AUTH_DOMAIN}
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_STORAGE_BUCKET=${FIREBASE_STORAGE_BUCKET}
+      - FIREBASE_MESSAGING_SENDER_ID=${FIREBASE_MESSAGING_SENDER_ID}
+      - FIREBASE_APP_ID=${FIREBASE_APP_ID}
+      - REDIS_HOSTNAME=${REDIS_HOSTNAME}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
